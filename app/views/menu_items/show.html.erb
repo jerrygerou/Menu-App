@@ -1,0 +1,26 @@
+
+<h1 class="title"><%= @menu_item.name%> Menu</h1>
+
+  <table class="table is-bordered">
+    <tr>
+      <th>Menu Item</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <tr>
+      <td><%= @menu_item.name %></td>
+      <td><%= @menu_item.description %></td>
+      <td>$<%= @menu_item.price %></td>
+      <td><%= @menu_item.categories.first.title %></td>
+      <td><%= link_to 'Edit Item', edit_menu_item_path(@menu_item) %></td>
+      <td><%= link_to 'Delete Item', menu_item_path(@menu_item),
+              method: :delete,
+              data: { confirm: 'Do you really want to delete this item?'} %></td>
+    </tr>
+  </table>
+
+<%= link_to 'Back to Menu', root_path %>
