@@ -1,8 +1,7 @@
 class MenuItemsController < ApplicationController
   def index
-    @menu_items = MenuItem.all.group(:categories)
+    @menu_items = MenuItem.all
     @categories = Category.all
-    @grouped_menu_items = MenuItem.all.group_by { |x| x.categories }
   end
 
   def show
