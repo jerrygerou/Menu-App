@@ -8,6 +8,7 @@
       <th>Description</th>
       <th>Price</th>
       <th>Category</th>
+      <th></th>
     </tr>
     <% category.menu_items.each do |menu_item| %>
     <tr>
@@ -15,6 +16,7 @@
       <td><%= menu_item.description %></td>
       <td>$<%= menu_item.price %></td>
       <td><%= link_to 'View Item', menu_item_path(menu_item) %></td>
+      <td><%= button_to 'Add to cart', order_items_path(menu_item_id: menu_item.id) %></td>
     </tr>
 
     <% end %>
