@@ -1,20 +1,32 @@
 <h1 class="title">Order Items</h1>
 
-
-<% @order_items.each do |order_item| %>
-  <table class="table is-bordered">
-    <tr>
-      <td><%= MenuItem.find(order_item.menu_item_id).name %></td>
+<table class="table is-bordered">
+  <tr>
+    <th>Menu Item</th>
+    <th>Price</th>
+    <th>Total for Item</th>
+    <th>Item Count</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @order_items.each do |order_item| %>
+      <tr>
+        <td><%= MenuItem.find(order_item.menu_item_id).name %></td>
+        <td>$ <%= MenuItem.find(order_item.menu_item_id).price%></td>
+        <td>$ <%= order_item.subtotal %></td>
         <td><%= order_item.quantity %></td>
         <td><%= link_to 'Add one', order_item_add_path(:id => order_item), method: :post %></td>
         <td><%= link_to 'Reduce one', order_item_reduce_path(:id => order_item), method: :post %></td>
         <td><%= link_to 'Remove from Cart', order_item_path(order_item),
                 method: :delete,
                 data: { confirm: 'Do you really want to not eat this?'} %></td>
-      </td>
-    </tr>
-  </table>
-<% end %>
+      </tr>
+  <% end %>
+</table>
+  <p><strong>Order Total: $ <%= @total %></strong></p>
+
 <br>
 
+<br>
 <%= link_to 'Back to Menu', root_path %>
