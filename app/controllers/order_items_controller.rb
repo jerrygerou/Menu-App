@@ -11,25 +11,13 @@ class OrderItemsController < ApplicationController
 
   def create
     @order_items = OrderItem.all
-    if @order_items == 0
-      Order.new(tip: 0.0)
-      @order_item = OrderItem.new(
-                          in_order: true,
-                          quantity: 1,
-                          menu_item_id: params[:menu_item_id]
-                        )
-      if @order_item.save
-        redirect_to '/order_items'
-      end
-    else
-      @order_item = OrderItem.new(
-                          in_order: true,
-                          quantity: 1,
-                          menu_item_id: params[:menu_item_id]
-                        )
-      if @order_item.save
-        redirect_to '/order_items'
-      end
+    @order_item = OrderItem.new(
+                        in_order: true,
+                        quantity: 1,
+                        menu_item_id: params[:menu_item_id]
+                      )
+    if @order_item.save
+      redirect_to '/order_items'
     end
   end
 
