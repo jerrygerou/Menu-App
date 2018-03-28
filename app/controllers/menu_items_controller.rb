@@ -45,6 +45,6 @@ class MenuItemsController < ApplicationController
 
   private
   def menu_item_params
-    params.require(:menu_item).permit(:name, :description, :price)
+    params.require(:menu_item).permit(:name, :description, :price, :category, :menu_item_image)
   end
 end

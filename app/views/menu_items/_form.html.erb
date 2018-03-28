@@ -1,4 +1,4 @@
-<%= form_with model: @menu_item, local: true do |form| %>
+<%= form_for @menu_item do |form| %>
 
   <% if @menu_item.errors.any? %>
     <div id="error_explanation">
@@ -30,9 +30,11 @@
   </p>
   <br>
   <p>
-    <%= form.label :category_id %>:
-    <% categories = Category.all.map { |category| [category.title, category.id] } %>
-    <%= form.select(:category_id, options_for_select(categories), :prompt => 'Select One')%>
+    <%= form.fields_for :category_assignment do |form| %>
+      <%= form.label :category %>
+      <%= form.collection_select :category_id, Category.all, :id, :title, prompt: 'Select One' %>
+      <%= hidden_field_tag :menu_item_id, @menu_item.id %>
+    <% end %>
   </p>
   <br>
   <p>
