@@ -7,17 +7,29 @@ class OrderItemsController < ApplicationController
     in_order_items.each do |order_item|
       @total = @total + (order_item.menu_item.price * order_item.quantity)
     end
-
   end
 
   def create
-    @order_item = OrderItem.new(
-                        in_order: true,
-                        quantity: 1,
-                        menu_item_id: params[:menu_item_id]
-                      )
-    if @order_item.save
-      redirect_to '/order_items'
+    @order_items = OrderItem.all
+    if @order_items == 0
+      Order.new(tip: 0.0)
+      @order_item = OrderItem.new(
+                          in_order: true,
+                          quantity: 1,
+                          menu_item_id: params[:menu_item_id]
+                        )
+      if @order_item.save
+        redirect_to '/order_items'
+      end
+    else
+      @order_item = OrderItem.new(
+                          in_order: true,
+                          quantity: 1,
+                          menu_item_id: params[:menu_item_id]
+                        )
+      if @order_item.save
+        redirect_to '/order_items'
+      end
     end
   end
 
@@ -44,7 +56,11 @@ class OrderItemsController < ApplicationController
       @order_item.quantity -= 1
     end
     @order_item.save
-    redirect_to '/order_items'
+    redirect_to '/orders'
+  end
+
+  def add_tip
+    @order_item
   end
 
   private
