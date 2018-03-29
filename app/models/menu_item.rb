@@ -3,6 +3,8 @@ class MenuItem < ApplicationRecord
   has_many :category_assignments
   has_many :categories, through: :category_assignments
 
+  # accepts_nested_attributes_for :category_assignments
+
   has_attached_file :menu_item_image,
     styles: {
       thumb: '100x100>',

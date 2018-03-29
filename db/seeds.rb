@@ -40,5 +40,3 @@ MenuItem.find(17).category_assignments.create(category_id: 5)
 MenuItem.find(18).category_assignments.create(category_id: 5)
 MenuItem.find(19).category_assignments.create(category_id: 5)
 MenuItem.find(20).category_assignments.create(category_id: 5)
-
-Order.create

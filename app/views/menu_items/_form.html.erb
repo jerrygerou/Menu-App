@@ -30,7 +30,7 @@
   </p>
   <br>
   <p>
-    <%= form.fields_for :category_assignment do |form| %>
+    <%= form.fields_for :category_assignments do |form| %>
       <%= form.label :category %>
       <%= form.collection_select :category_id, Category.all, :id, :title, prompt: 'Select One' %>
       <%= hidden_field_tag :menu_item_id, @menu_item.id %>

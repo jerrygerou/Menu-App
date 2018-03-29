@@ -18,6 +18,7 @@ class MenuItemsController < ApplicationController
 
   def create
     @menu_item = MenuItem.new(menu_item_params)
+    # @menu_item.category_assignments.build(params[:category_id])
 
     if @menu_item.save
       redirect_to @menu_item
@@ -45,6 +46,6 @@ class MenuItemsController < ApplicationController
 
   private
   def menu_item_params
-    params.require(:menu_item).permit(:name, :description, :price, :category, :menu_item_image)
+    params.require(:menu_item).permit(:name, :description, :price, :category, :menu_item_image, category_assignments_attributes: [ :menu_item_id, :category_id ])
   end
 end
