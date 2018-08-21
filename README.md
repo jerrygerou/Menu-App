@@ -1,16 +1,16 @@
-# Software Developer Exercise: Menu management
+# Exercise: Menu management
 
 A small restaurant wants a web application to manage their menus. They have no preferred framework or tools, no preference on server-side or client-side. The focus is not on CSS, so we strongly recommend using a framework such as Bootstrap so you can focus on back-end code instead of styles.
 
 Several stories have been identified as required, and some are optional (pick two).
 
-## Required Stories (Complete all 3)
+## Required Stories
 
  - [x] A user should be able to enter, edit, and remove menu items. The menu items have a name, a description, a category (such as appetizer, main course, side, dessert), and a price. (Unless you do the optional story, we’re not concerned with user logins or security)
  - [x] A user should be able to view the menu, with items grouped by category, and see the names, descriptions, and prices.
  - [x] The menu view should allow users to select items off the menu. On submitting the form, they should be able to see the total price of their potential order. A user should be able to adjust the quantity of items in their order.
 
-## Optional Stories (Complete exactly 2)
+## Optional Stories
 
  - [ ] Restrict the ability to enter, edit, and remove menu items to a logged-in administrator.
  - [ ] When the user sees their total order, they can add an optional tip of 10%, 15%, or 20%, and resubmit the order to see the total with tip.
